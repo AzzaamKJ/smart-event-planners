@@ -2,12 +2,12 @@
   "facts": [
     {
       "area": "schedule",
-      "detail": "a 4-hour hackathon",
+      "detail": "4-hour hackathon duration",
       "value": 4,
       "key": "event_duration",
       "entity": null,
       "unit": "hours",
-      "source": "Dean's office",
+      "source": "Message 1",
       "date": "9 Nov"
     },
     {
@@ -17,272 +17,250 @@
       "key": "student_count",
       "entity": null,
       "unit": "people",
-      "source": "Dean's office",
+      "source": "Message 1",
       "date": "9 Nov"
     },
     {
       "area": "schedule",
-      "detail": "teams of 3",
+      "detail": "teams of 3 students",
       "value": 3,
       "key": "team_size",
       "entity": null,
       "unit": "people",
-      "source": "Dean's office",
+      "source": "Message 1",
       "date": "9 Nov"
     },
     {
       "area": "budget",
-      "detail": "The budget is Rs 650,000, all in.",
+      "detail": "Total budget Rs 650,000",
       "value": 650000,
       "key": "budget_limit",
       "entity": null,
       "unit": "PKR",
-      "source": "Dean's office",
+      "source": "Message 1",
       "date": "9 Nov"
     },
     {
       "area": "schedule",
-      "detail": "Ten staff will be on duty.",
+      "detail": "10 staff on duty",
       "value": 10,
       "key": "staff_count",
       "entity": null,
       "unit": "people",
-      "source": "Dean's office",
+      "source": "Message 1",
       "date": "9 Nov"
     },
     {
       "area": "schedule",
-      "detail": "Keep a 15-minute prayer break in the schedule.",
+      "detail": "15-minute prayer break required",
       "value": 15,
       "key": "break_duration",
       "entity": null,
       "unit": "minutes",
-      "source": "Dean's office",
+      "source": "Message 1",
       "date": "9 Nov"
     },
     {
       "area": "venue",
-      "detail": "Room D seats 80",
+      "detail": "Room D capacity 80 seats",
       "value": 80,
       "key": "venue_capacity",
       "entity": "Room D",
       "unit": "people",
-      "source": "Margalla Event Halls",
+      "source": "Message 2",
       "date": "3 Nov"
     },
     {
       "area": "venue",
-      "detail": "Room D at Rs 40,000",
+      "detail": "Room D price Rs 40,000",
       "value": 40000,
       "key": "venue_price",
       "entity": "Room D",
       "unit": "PKR",
-      "source": "Margalla Event Halls",
+      "source": "Message 2",
       "date": "3 Nov"
     },
     {
       "area": "venue",
-      "detail": "Hall A seats 200",
+      "detail": "Hall A capacity 200 seats",
       "value": 200,
       "key": "venue_capacity",
       "entity": "Hall A",
       "unit": "people",
-      "source": "Margalla Event Halls",
+      "source": "Message 2",
       "date": "3 Nov"
     },
     {
       "area": "venue",
-      "detail": "Hall A at Rs 120,000",
+      "detail": "Hall A price Rs 120,000",
       "value": 120000,
       "key": "venue_price",
       "entity": "Hall A",
       "unit": "PKR",
-      "source": "Margalla Event Halls",
+      "source": "Message 2",
       "date": "3 Nov"
     },
     {
       "area": "venue",
-      "detail": "Hall B seats 200",
+      "detail": "Hall B capacity 200 seats",
       "value": 200,
       "key": "venue_capacity",
       "entity": "Hall B",
       "unit": "people",
-      "source": "Margalla Event Halls",
+      "source": "Message 2",
       "date": "3 Nov"
     },
     {
       "area": "venue",
-      "detail": "Hall B at Rs 150,000",
+      "detail": "Hall B price Rs 150,000",
       "value": 150000,
       "key": "venue_price",
       "entity": "Hall B",
       "unit": "PKR",
-      "source": "Margalla Event Halls",
+      "source": "Message 2",
       "date": "3 Nov"
     },
     {
       "area": "venue",
-      "detail": "Hall C seats 300",
+      "detail": "Hall C capacity 300 seats",
       "value": 300,
       "key": "venue_capacity",
       "entity": "Hall C",
       "unit": "people",
-      "source": "Margalla Event Halls",
+      "source": "Message 2",
       "date": "3 Nov"
     },
     {
       "area": "venue",
-      "detail": "Hall C at Rs 220,000",
+      "detail": "Hall C price Rs 220,000",
       "value": 220000,
       "key": "venue_price",
       "entity": "Hall C",
       "unit": "PKR",
-      "source": "Margalla Event Halls",
-      "date": "3 Nov"
-    },
-    {
-      "area": "venue",
-      "detail": "Halls B and C have a standby generator.",
-      "value": null,
-      "key": "venue_feature",
-      "entity": "Halls B and C",
-      "unit": null,
-      "source": "Margalla Event Halls",
+      "source": "Message 2",
       "date": "3 Nov"
     },
     {
       "area": "food",
-      "detail": "Standard lunch box Rs 1,000 per head.",
-      "value": 1000,
-      "key": "food_price",
-      "entity": "Standard lunch box",
-      "unit": "PKR",
-      "source": "Caterer",
-      "date": "20 Oct"
-    },
-    {
-      "area": "food",
-      "detail": "Standard lunch box ab Rs 1,200 per head hoga",
+      "detail": "Standard lunch box price Rs 1,200",
       "value": 1200,
       "key": "food_price",
       "entity": "Standard lunch box",
       "unit": "PKR",
-      "source": "Caterer",
+      "source": "Message 4",
       "date": "12 Nov"
     },
     {
       "area": "food",
-      "detail": "basic wala Rs 800",
+      "detail": "Basic lunch box price Rs 800",
       "value": 800,
       "key": "food_price",
-      "entity": "basic lunch box",
+      "entity": "Basic lunch box",
       "unit": "PKR",
-      "source": "Caterer",
-      "date": "12 Nov"
-    },
-    {
-      "area": "food",
-      "detail": "Delivery free hai.",
-      "value": 0,
-      "key": "delivery_price",
-      "entity": null,
-      "unit": "PKR",
-      "source": "Caterer",
+      "source": "Message 4",
       "date": "12 Nov"
     },
     {
       "area": "judging",
-      "detail": "20 judges have confirmed.",
+      "detail": "20 judges confirmed",
       "value": 20,
       "key": "judge_count",
       "entity": null,
       "unit": "people",
-      "source": "Judging coordinator",
+      "source": "Message 5",
       "date": "11 Nov"
     },
     {
       "area": "judging",
-      "detail": "The honorarium is Rs 5,000 each.",
+      "detail": "Honorarium Rs 5,000 per judge",
       "value": 5000,
       "key": "judge_honorarium",
       "entity": null,
       "unit": "PKR",
-      "source": "Judging coordinator",
+      "source": "Message 5",
       "date": "11 Nov"
     },
     {
       "area": "judging",
-      "detail": "A judge needs 15 minutes per team",
+      "detail": "15 minutes per team",
       "value": 15,
       "key": "judging_time_per_team",
       "entity": null,
       "unit": "minutes",
-      "source": "Judging coordinator",
+      "source": "Message 5",
       "date": "11 Nov"
     },
     {
       "area": "judging",
-      "detail": "should cover no more than three teams.",
+      "detail": "Max 3 teams per judge",
       "value": 3,
       "key": "max_teams_per_judge",
       "entity": null,
       "unit": "teams",
-      "source": "Judging coordinator",
+      "source": "Message 5",
       "date": "11 Nov"
     },
     {
       "area": "budget",
-      "detail": "prizes Rs 100,000",
+      "detail": "Prizes expense Rs 100,000",
       "value": 100000,
-      "key": "expense_item_price",
+      "key": "budget_spent",
       "entity": "prizes",
       "unit": "PKR",
-      "source": "Finance",
+      "source": "Message 6",
       "date": "10 Nov"
     },
     {
       "area": "budget",
-      "detail": "backup internet Rs 20,000",
+      "detail": "Backup internet expense Rs 20,000",
       "value": 20000,
-      "key": "expense_item_price",
+      "key": "budget_spent",
       "entity": "backup internet",
       "unit": "PKR",
-      "source": "Finance",
+      "source": "Message 6",
       "date": "10 Nov"
     },
     {
       "area": "budget",
-      "detail": "printing Rs 10,000",
+      "detail": "Printing expense Rs 10,000",
       "value": 10000,
-      "key": "expense_item_price",
+      "key": "budget_spent",
       "entity": "printing",
       "unit": "PKR",
-      "source": "Finance",
+      "source": "Message 6",
       "date": "10 Nov"
     },
     {
       "area": "budget",
-      "detail": "Can we get a DJ for the closing? The quote is Rs 50,000.",
+      "detail": "DJ quote Rs 50,000",
       "value": 50000,
-      "key": "dj_quote",
+      "key": "potential_expense",
       "entity": "DJ",
       "unit": "PKR",
-      "source": "Student society",
+      "source": "Message 7",
       "date": "13 Nov"
     },
     {
       "area": "schedule",
-      "detail": "I may be 10 minutes late on the day. Traffic on Srinagar Highway.",
+      "detail": "Potential judge delay of 10 minutes",
       "value": 10,
       "key": "judge_delay",
       "entity": null,
       "unit": "minutes",
-      "source": "A judge",
+      "source": "Message 8",
       "date": "14 Nov"
     }
   ],
   "conflicts": [
-    "Caterer updated the standard lunch box price from Rs 1,000 per head (20 Oct) to Rs 1,200 per head (12 Nov)."
+    {
+      "fact_1": "Standard lunch box price Rs 1,000 (Message 3, 20 Oct)",
+      "fact_2": "Standard lunch box price Rs 1,200 (Message 4, 12 Nov)",
+      "issue": "Price increase"
+    }
   ],
-  "irrelevant_messages": []
+  "irrelevant_messages": [
+    "Halls B and C have a standby generator (Message 2 - informational, but not essential to planning budget/attendance)",
+    "Delivery free (Message 4 - irrelevant as cost is covered by per-head price)",
+    "Traffic on Srinagar Highway (Message 8 - cause of delay, not a planning rule)"
+  ]
 }

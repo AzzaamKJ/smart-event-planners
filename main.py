@@ -29,7 +29,7 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-model_name = "gemini-3.5-flash-lite"
+model_name = "gemini-3.1-flash-lite"
 
 prompt = """
 Extract all event-planning facts from these messages.
