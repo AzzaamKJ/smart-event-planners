@@ -86,3 +86,25 @@ Path("extracted_facts.json").write_text(
 )
 
 print("\nFacts saved to extracted_facts.json")
+
+# ===== SAVE REAL AI TRACE =====
+
+usage = response.usage_metadata
+
+trace = {
+    "call_number": 1,
+    "model": model_name,
+    "area": "reading",
+    "input": prompt,
+    "output": response.text,
+    "input_tokens": usage.prompt_token_count,
+    "output_tokens": usage.candidates_token_count,
+    "total_tokens": usage.total_token_count
+}
+
+Path("trace.json").write_text(
+    json.dumps(trace, indent=2, ensure_ascii=False),
+    encoding="utf-8"
+)
+
+print("\nTrace saved to trace.json")

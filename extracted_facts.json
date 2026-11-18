@@ -4,30 +4,30 @@
       "area": "schedule",
       "detail": "a 4-hour hackathon",
       "value": 4,
-      "key": "duration",
+      "key": "event_duration",
       "entity": null,
       "unit": "hours",
-      "source": "Message 1",
+      "source": "Dean's office",
       "date": "9 Nov"
     },
     {
-      "area": "judging",
+      "area": "schedule",
       "detail": "150 students",
       "value": 150,
       "key": "student_count",
       "entity": null,
       "unit": "people",
-      "source": "Message 1",
+      "source": "Dean's office",
       "date": "9 Nov"
     },
     {
-      "area": "judging",
+      "area": "schedule",
       "detail": "teams of 3",
       "value": 3,
       "key": "team_size",
       "entity": null,
       "unit": "people",
-      "source": "Message 1",
+      "source": "Dean's office",
       "date": "9 Nov"
     },
     {
@@ -37,7 +37,7 @@
       "key": "budget_limit",
       "entity": null,
       "unit": "PKR",
-      "source": "Message 1",
+      "source": "Dean's office",
       "date": "9 Nov"
     },
     {
@@ -47,17 +47,17 @@
       "key": "staff_count",
       "entity": null,
       "unit": "people",
-      "source": "Message 1",
+      "source": "Dean's office",
       "date": "9 Nov"
     },
     {
       "area": "schedule",
-      "detail": "keep a 15-minute prayer break in the schedule",
+      "detail": "Keep a 15-minute prayer break in the schedule.",
       "value": 15,
       "key": "break_duration",
       "entity": null,
       "unit": "minutes",
-      "source": "Message 1",
+      "source": "Dean's office",
       "date": "9 Nov"
     },
     {
@@ -67,7 +67,7 @@
       "key": "venue_capacity",
       "entity": "Room D",
       "unit": "people",
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
@@ -77,7 +77,7 @@
       "key": "venue_price",
       "entity": "Room D",
       "unit": "PKR",
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
@@ -87,7 +87,7 @@
       "key": "venue_capacity",
       "entity": "Hall A",
       "unit": "people",
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
@@ -97,7 +97,7 @@
       "key": "venue_price",
       "entity": "Hall A",
       "unit": "PKR",
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
@@ -107,7 +107,7 @@
       "key": "venue_capacity",
       "entity": "Hall B",
       "unit": "people",
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
@@ -117,17 +117,7 @@
       "key": "venue_price",
       "entity": "Hall B",
       "unit": "PKR",
-      "source": "Message 2",
-      "date": "3 Nov"
-    },
-    {
-      "area": "venue",
-      "detail": "Hall B has a standby generator",
-      "value": null,
-      "key": "generator_availability",
-      "entity": "Hall B",
-      "unit": null,
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
@@ -137,7 +127,7 @@
       "key": "venue_capacity",
       "entity": "Hall C",
       "unit": "people",
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
@@ -147,27 +137,27 @@
       "key": "venue_price",
       "entity": "Hall C",
       "unit": "PKR",
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
       "area": "venue",
-      "detail": "Hall C has a standby generator",
+      "detail": "Halls B and C have a standby generator.",
       "value": null,
-      "key": "generator_availability",
-      "entity": "Hall C",
+      "key": "venue_feature",
+      "entity": "Halls B and C",
       "unit": null,
-      "source": "Message 2",
+      "source": "Margalla Event Halls",
       "date": "3 Nov"
     },
     {
       "area": "food",
-      "detail": "Standard lunch box Rs 1,000 per head",
+      "detail": "Standard lunch box Rs 1,000 per head.",
       "value": 1000,
       "key": "food_price",
       "entity": "Standard lunch box",
       "unit": "PKR",
-      "source": "Message 3",
+      "source": "Caterer",
       "date": "20 Oct"
     },
     {
@@ -177,47 +167,47 @@
       "key": "food_price",
       "entity": "Standard lunch box",
       "unit": "PKR",
-      "source": "Message 4",
+      "source": "Caterer",
       "date": "12 Nov"
     },
     {
       "area": "food",
-      "detail": "basic wala Rs 800 per head",
+      "detail": "basic wala Rs 800",
       "value": 800,
       "key": "food_price",
-      "entity": "Basic lunch box",
+      "entity": "basic lunch box",
       "unit": "PKR",
-      "source": "Message 4",
+      "source": "Caterer",
       "date": "12 Nov"
     },
     {
       "area": "food",
-      "detail": "Delivery free hai",
+      "detail": "Delivery free hai.",
       "value": 0,
       "key": "delivery_price",
       "entity": null,
       "unit": "PKR",
-      "source": "Message 4",
+      "source": "Caterer",
       "date": "12 Nov"
     },
     {
       "area": "judging",
-      "detail": "20 judges have confirmed",
+      "detail": "20 judges have confirmed.",
       "value": 20,
       "key": "judge_count",
       "entity": null,
       "unit": "people",
-      "source": "Message 5",
+      "source": "Judging coordinator",
       "date": "11 Nov"
     },
     {
       "area": "judging",
-      "detail": "The honorarium is Rs 5,000 each",
+      "detail": "The honorarium is Rs 5,000 each.",
       "value": 5000,
       "key": "judge_honorarium",
       "entity": null,
       "unit": "PKR",
-      "source": "Message 5",
+      "source": "Judging coordinator",
       "date": "11 Nov"
     },
     {
@@ -227,57 +217,57 @@
       "key": "judging_time_per_team",
       "entity": null,
       "unit": "minutes",
-      "source": "Message 5",
+      "source": "Judging coordinator",
       "date": "11 Nov"
     },
     {
       "area": "judging",
-      "detail": "should cover no more than three teams",
+      "detail": "should cover no more than three teams.",
       "value": 3,
       "key": "max_teams_per_judge",
       "entity": null,
       "unit": "teams",
-      "source": "Message 5",
+      "source": "Judging coordinator",
       "date": "11 Nov"
     },
     {
       "area": "budget",
       "detail": "prizes Rs 100,000",
       "value": 100000,
-      "key": "expense_item",
+      "key": "expense_item_price",
       "entity": "prizes",
       "unit": "PKR",
-      "source": "Message 6",
+      "source": "Finance",
       "date": "10 Nov"
     },
     {
       "area": "budget",
       "detail": "backup internet Rs 20,000",
       "value": 20000,
-      "key": "expense_item",
+      "key": "expense_item_price",
       "entity": "backup internet",
       "unit": "PKR",
-      "source": "Message 6",
+      "source": "Finance",
       "date": "10 Nov"
     },
     {
       "area": "budget",
       "detail": "printing Rs 10,000",
       "value": 10000,
-      "key": "expense_item",
+      "key": "expense_item_price",
       "entity": "printing",
       "unit": "PKR",
-      "source": "Message 6",
+      "source": "Finance",
       "date": "10 Nov"
     },
     {
       "area": "budget",
-      "detail": "DJ quote is Rs 50,000",
+      "detail": "Can we get a DJ for the closing? The quote is Rs 50,000.",
       "value": 50000,
-      "key": "entertainment_price",
+      "key": "dj_quote",
       "entity": "DJ",
       "unit": "PKR",
-      "source": "Message 7",
+      "source": "Student society",
       "date": "13 Nov"
     },
     {
@@ -287,15 +277,12 @@
       "key": "judge_delay",
       "entity": null,
       "unit": "minutes",
-      "source": "Message 8",
+      "source": "A judge",
       "date": "14 Nov"
     }
   ],
   "conflicts": [
-    {
-      "area": "food",
-      "detail": "Caterer changed the standard lunch box price from Rs 1,000 per head (Message 3, 20 Oct) to Rs 1,200 per head (Message 4, 12 Nov)."
-    }
+    "Caterer updated the standard lunch box price from Rs 1,000 per head (20 Oct) to Rs 1,200 per head (12 Nov)."
   ],
   "irrelevant_messages": []
 }
