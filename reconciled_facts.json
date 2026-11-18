@@ -1,0 +1,270 @@
+{
+  "facts": [
+    {
+      "area": "schedule",
+      "detail": "4-hour hackathon duration",
+      "value": 4,
+      "key": "event_duration",
+      "entity": null,
+      "unit": "hours",
+      "source": "Message 1",
+      "date": "9 Nov"
+    },
+    {
+      "area": "schedule",
+      "detail": "150 students",
+      "value": 150,
+      "key": "student_count",
+      "entity": null,
+      "unit": "people",
+      "source": "Message 1",
+      "date": "9 Nov"
+    },
+    {
+      "area": "schedule",
+      "detail": "3 students per team",
+      "value": 3,
+      "key": "team_size",
+      "entity": null,
+      "unit": "people",
+      "source": "Message 1",
+      "date": "9 Nov"
+    },
+    {
+      "area": "budget",
+      "detail": "Total budget limit",
+      "value": 650000,
+      "key": "budget_limit",
+      "entity": null,
+      "unit": "PKR",
+      "source": "Message 1",
+      "date": "9 Nov"
+    },
+    {
+      "area": "schedule",
+      "detail": "10 staff members on duty",
+      "value": 10,
+      "key": "staff_count",
+      "entity": null,
+      "unit": "people",
+      "source": "Message 1",
+      "date": "9 Nov"
+    },
+    {
+      "area": "schedule",
+      "detail": "15-minute prayer break required",
+      "value": 15,
+      "key": "break_duration",
+      "entity": null,
+      "unit": "minutes",
+      "source": "Message 1",
+      "date": "9 Nov"
+    },
+    {
+      "area": "venue",
+      "detail": "Room D capacity",
+      "value": 80,
+      "key": "venue_capacity",
+      "entity": "Room D",
+      "unit": "people",
+      "source": "Message 2",
+      "date": "3 Nov"
+    },
+    {
+      "area": "venue",
+      "detail": "Room D price",
+      "value": 40000,
+      "key": "venue_price",
+      "entity": "Room D",
+      "unit": "PKR",
+      "source": "Message 2",
+      "date": "3 Nov"
+    },
+    {
+      "area": "venue",
+      "detail": "Hall A capacity",
+      "value": 200,
+      "key": "venue_capacity",
+      "entity": "Hall A",
+      "unit": "people",
+      "source": "Message 2",
+      "date": "3 Nov"
+    },
+    {
+      "area": "venue",
+      "detail": "Hall A price",
+      "value": 120000,
+      "key": "venue_price",
+      "entity": "Hall A",
+      "unit": "PKR",
+      "source": "Message 2",
+      "date": "3 Nov"
+    },
+    {
+      "area": "venue",
+      "detail": "Hall B capacity",
+      "value": 200,
+      "key": "venue_capacity",
+      "entity": "Hall B",
+      "unit": "people",
+      "source": "Message 2",
+      "date": "3 Nov"
+    },
+    {
+      "area": "venue",
+      "detail": "Hall B price",
+      "value": 150000,
+      "key": "venue_price",
+      "entity": "Hall B",
+      "unit": "PKR",
+      "source": "Message 2",
+      "date": "3 Nov"
+    },
+    {
+      "area": "venue",
+      "detail": "Hall C capacity",
+      "value": 300,
+      "key": "venue_capacity",
+      "entity": "Hall C",
+      "unit": "people",
+      "source": "Message 2",
+      "date": "3 Nov"
+    },
+    {
+      "area": "venue",
+      "detail": "Hall C price",
+      "value": 220000,
+      "key": "venue_price",
+      "entity": "Hall C",
+      "unit": "PKR",
+      "source": "Message 2",
+      "date": "3 Nov"
+    },
+    {
+      "area": "food",
+      "detail": "Standard lunch box price",
+      "value": 1200,
+      "key": "food_price",
+      "entity": "Standard lunch box",
+      "unit": "PKR",
+      "source": "Message 4",
+      "date": "12 Nov"
+    },
+    {
+      "area": "food",
+      "detail": "Basic lunch box price",
+      "value": 800,
+      "key": "food_price",
+      "entity": "Basic lunch box",
+      "unit": "PKR",
+      "source": "Message 4",
+      "date": "12 Nov"
+    },
+    {
+      "area": "judging",
+      "detail": "Confirmed judges count",
+      "value": 20,
+      "key": "judge_count",
+      "entity": null,
+      "unit": "people",
+      "source": "Message 5",
+      "date": "11 Nov"
+    },
+    {
+      "area": "judging",
+      "detail": "Judge honorarium",
+      "value": 5000,
+      "key": "judge_honorarium",
+      "entity": null,
+      "unit": "PKR",
+      "source": "Message 5",
+      "date": "11 Nov"
+    },
+    {
+      "area": "judging",
+      "detail": "Judging time per team",
+      "value": 15,
+      "key": "judging_time_per_team",
+      "entity": null,
+      "unit": "minutes",
+      "source": "Message 5",
+      "date": "11 Nov"
+    },
+    {
+      "area": "judging",
+      "detail": "Maximum teams per judge",
+      "value": 3,
+      "key": "max_teams_per_judge",
+      "entity": null,
+      "unit": "teams",
+      "source": "Message 5",
+      "date": "11 Nov"
+    },
+    {
+      "area": "budget",
+      "detail": "Prizes budget spent",
+      "value": 100000,
+      "key": "budget_spent",
+      "entity": "prizes",
+      "unit": "PKR",
+      "source": "Message 6",
+      "date": "10 Nov"
+    },
+    {
+      "area": "budget",
+      "detail": "Backup internet budget spent",
+      "value": 20000,
+      "key": "budget_spent",
+      "entity": "backup internet",
+      "unit": "PKR",
+      "source": "Message 6",
+      "date": "10 Nov"
+    },
+    {
+      "area": "budget",
+      "detail": "Printing budget spent",
+      "value": 10000,
+      "key": "budget_spent",
+      "entity": "printing",
+      "unit": "PKR",
+      "source": "Message 6",
+      "date": "10 Nov"
+    },
+    {
+      "area": "budget",
+      "detail": "DJ quote",
+      "value": 50000,
+      "key": "vendor_quote",
+      "entity": "DJ",
+      "unit": "PKR",
+      "source": "Message 7",
+      "date": "13 Nov"
+    },
+    {
+      "area": "budget",
+      "key": "printing_bill",
+      "entity": "printing",
+      "value": "15000",
+      "unit": "Rs",
+      "detail": "Printing bill came in higher than previously stated",
+      "source": "Finance",
+      "date": null
+    }
+  ],
+  "conflicts": [
+    {
+      "area": "food",
+      "detail": "Standard lunch box price updated from 1,000 PKR (20 Oct) to 1,200 PKR (12 Nov).",
+      "source": [
+        "Message 3",
+        "Message 4"
+      ]
+    }
+  ],
+  "irrelevant_messages": [
+    {
+      "message": "Message 8",
+      "reason": "Personal travel delay of a single judge does not affect event planning constraints or budget."
+    }
+  ]
+}

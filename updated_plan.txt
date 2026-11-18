@@ -1,0 +1,40 @@
+
+========== SMART EVENT PLAN ==========
+
+1. VENUE
+Venue: Hall A
+Capacity: 200
+Price: Rs 120,000
+
+2. FOOD
+Assumed meals required: 180
+Standard lunch box Rs 1,200 per person
+Estimated total: Rs 216,000
+Basic lunch box Rs 800 per person
+Estimated total: Rs 144,000
+
+3. JUDGING
+Teams: 50
+Confirmed judges: 20
+Minimum judges required: 17
+Judge count valid: YES
+Judge honorarium total: Rs 100,000
+
+4. SCHEDULE
+- 4-hour hackathon duration
+- 150 students
+- 3 students per team
+- 10 staff members on duty
+- 15-minute prayer break required
+Schedule still requires timing validation.
+
+5. BUDGET
+Available budget: Rs 650,000
+Venue cost: Rs 120,000
+Judging cost: Rs 100,000
+Other committed costs require verification.
+Known subtotal: Rs 220,000
+Remaining before other costs: Rs 430,000
+THIS IS NOT THE FINAL TOTAL.
+
+========== END OF PLAN ==========

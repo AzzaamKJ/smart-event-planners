@@ -1,2 +1,4 @@
 Caterer: I have rounded your order down to 100 boxes to keep the cost low.
-Rejected: 100 boxes requested, but 180 meals are required under the current attendance assumption.
+Rejected: 100 boxes requested, but 180 meals are required under the current attendance assumption.Caterer: I have rounded your order down to 100 boxes to keep the cost low.
+Rejected: 100 boxes requested, but assumed required meals are 180.
+

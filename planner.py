@@ -4,7 +4,7 @@ import math
 from pathlib import Path
 
 data = json.loads(
-    Path("extracted_facts.json").read_text(encoding="utf-8")
+    Path("reconciled_facts.json").read_text(encoding="utf-8")
 )
 
 facts = data.get("facts", [])

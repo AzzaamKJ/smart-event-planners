@@ -1,0 +1,12 @@
+[
+  {
+    "call_number": 1,
+    "model": "gemini-3.5-flash-lite",
+    "area": "reading",
+    "input": "Extract only facts changed or added by this new message. Return JSON with 'facts' array and 'affected_areas' array. Each fact needs area, key, entity, value, unit, detail, source, date. Keep explicit uncertainty. Do not invent facts. Valid areas: venue, schedule, food, judging, budget.\nNEW MESSAGE:\nFinance here. The printing bill came in at Rs 15,000, not Rs 10,000.",
+    "output": "{\n  \"facts\": [\n    {\n      \"area\": \"budget\",\n      \"key\": \"printing_bill\",\n      \"entity\": \"printing\",\n      \"value\": \"15000\",\n      \"unit\": \"Rs\",\n      \"detail\": \"Printing bill came in higher than previously stated\",\n      \"source\": \"Finance\",\n      \"date\": null\n    }\n  ],\n  \"affected_areas\": [\n    \"budget\"\n  ]\n}",
+    "input_tokens": 101,
+    "output_tokens": 109,
+    "total_tokens": 210
+  }
+]

@@ -239,6 +239,16 @@
       "unit": "PKR",
       "source": "Message 7",
       "date": "13 Nov"
+    },
+    {
+      "area": "budget",
+      "key": "printing_bill",
+      "entity": "printing",
+      "value": "15000",
+      "unit": "Rs",
+      "detail": "Printing bill came in higher than previously stated",
+      "source": "Finance",
+      "date": null
     }
   ],
   "conflicts": [
