@@ -22,7 +22,7 @@
     },
     {
       "area": "schedule",
-      "detail": "teams of 3 students",
+      "detail": "3 students per team",
       "value": 3,
       "key": "team_size",
       "entity": null,
@@ -32,7 +32,7 @@
     },
     {
       "area": "budget",
-      "detail": "Total budget Rs 650,000",
+      "detail": "Total budget limit",
       "value": 650000,
       "key": "budget_limit",
       "entity": null,
@@ -42,7 +42,7 @@
     },
     {
       "area": "schedule",
-      "detail": "10 staff on duty",
+      "detail": "10 staff members on duty",
       "value": 10,
       "key": "staff_count",
       "entity": null,
@@ -62,7 +62,7 @@
     },
     {
       "area": "venue",
-      "detail": "Room D capacity 80 seats",
+      "detail": "Room D capacity",
       "value": 80,
       "key": "venue_capacity",
       "entity": "Room D",
@@ -72,7 +72,7 @@
     },
     {
       "area": "venue",
-      "detail": "Room D price Rs 40,000",
+      "detail": "Room D price",
       "value": 40000,
       "key": "venue_price",
       "entity": "Room D",
@@ -82,7 +82,7 @@
     },
     {
       "area": "venue",
-      "detail": "Hall A capacity 200 seats",
+      "detail": "Hall A capacity",
       "value": 200,
       "key": "venue_capacity",
       "entity": "Hall A",
@@ -92,7 +92,7 @@
     },
     {
       "area": "venue",
-      "detail": "Hall A price Rs 120,000",
+      "detail": "Hall A price",
       "value": 120000,
       "key": "venue_price",
       "entity": "Hall A",
@@ -102,7 +102,7 @@
     },
     {
       "area": "venue",
-      "detail": "Hall B capacity 200 seats",
+      "detail": "Hall B capacity",
       "value": 200,
       "key": "venue_capacity",
       "entity": "Hall B",
@@ -112,7 +112,7 @@
     },
     {
       "area": "venue",
-      "detail": "Hall B price Rs 150,000",
+      "detail": "Hall B price",
       "value": 150000,
       "key": "venue_price",
       "entity": "Hall B",
@@ -122,7 +122,7 @@
     },
     {
       "area": "venue",
-      "detail": "Hall C capacity 300 seats",
+      "detail": "Hall C capacity",
       "value": 300,
       "key": "venue_capacity",
       "entity": "Hall C",
@@ -132,7 +132,7 @@
     },
     {
       "area": "venue",
-      "detail": "Hall C price Rs 220,000",
+      "detail": "Hall C price",
       "value": 220000,
       "key": "venue_price",
       "entity": "Hall C",
@@ -142,7 +142,7 @@
     },
     {
       "area": "food",
-      "detail": "Standard lunch box price Rs 1,200",
+      "detail": "Standard lunch box price",
       "value": 1200,
       "key": "food_price",
       "entity": "Standard lunch box",
@@ -152,7 +152,7 @@
     },
     {
       "area": "food",
-      "detail": "Basic lunch box price Rs 800",
+      "detail": "Basic lunch box price",
       "value": 800,
       "key": "food_price",
       "entity": "Basic lunch box",
@@ -162,7 +162,7 @@
     },
     {
       "area": "judging",
-      "detail": "20 judges confirmed",
+      "detail": "Confirmed judges count",
       "value": 20,
       "key": "judge_count",
       "entity": null,
@@ -172,7 +172,7 @@
     },
     {
       "area": "judging",
-      "detail": "Honorarium Rs 5,000 per judge",
+      "detail": "Judge honorarium",
       "value": 5000,
       "key": "judge_honorarium",
       "entity": null,
@@ -182,7 +182,7 @@
     },
     {
       "area": "judging",
-      "detail": "15 minutes per team",
+      "detail": "Judging time per team",
       "value": 15,
       "key": "judging_time_per_team",
       "entity": null,
@@ -192,7 +192,7 @@
     },
     {
       "area": "judging",
-      "detail": "Max 3 teams per judge",
+      "detail": "Maximum teams per judge",
       "value": 3,
       "key": "max_teams_per_judge",
       "entity": null,
@@ -202,7 +202,7 @@
     },
     {
       "area": "budget",
-      "detail": "Prizes expense Rs 100,000",
+      "detail": "Prizes budget spent",
       "value": 100000,
       "key": "budget_spent",
       "entity": "prizes",
@@ -212,7 +212,7 @@
     },
     {
       "area": "budget",
-      "detail": "Backup internet expense Rs 20,000",
+      "detail": "Backup internet budget spent",
       "value": 20000,
       "key": "budget_spent",
       "entity": "backup internet",
@@ -222,7 +222,7 @@
     },
     {
       "area": "budget",
-      "detail": "Printing expense Rs 10,000",
+      "detail": "Printing budget spent",
       "value": 10000,
       "key": "budget_spent",
       "entity": "printing",
@@ -232,35 +232,29 @@
     },
     {
       "area": "budget",
-      "detail": "DJ quote Rs 50,000",
+      "detail": "DJ quote",
       "value": 50000,
-      "key": "potential_expense",
+      "key": "vendor_quote",
       "entity": "DJ",
       "unit": "PKR",
       "source": "Message 7",
       "date": "13 Nov"
-    },
-    {
-      "area": "schedule",
-      "detail": "Potential judge delay of 10 minutes",
-      "value": 10,
-      "key": "judge_delay",
-      "entity": null,
-      "unit": "minutes",
-      "source": "Message 8",
-      "date": "14 Nov"
     }
   ],
   "conflicts": [
     {
-      "fact_1": "Standard lunch box price Rs 1,000 (Message 3, 20 Oct)",
-      "fact_2": "Standard lunch box price Rs 1,200 (Message 4, 12 Nov)",
-      "issue": "Price increase"
+      "area": "food",
+      "detail": "Standard lunch box price updated from 1,000 PKR (20 Oct) to 1,200 PKR (12 Nov).",
+      "source": [
+        "Message 3",
+        "Message 4"
+      ]
     }
   ],
   "irrelevant_messages": [
-    "Halls B and C have a standby generator (Message 2 - informational, but not essential to planning budget/attendance)",
-    "Delivery free (Message 4 - irrelevant as cost is covered by per-head price)",
-    "Traffic on Srinagar Highway (Message 8 - cause of delay, not a planning rule)"
+    {
+      "message": "Message 8",
+      "reason": "Personal travel delay of a single judge does not affect event planning constraints or budget."
+    }
   ]
 }

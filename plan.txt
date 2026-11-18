@@ -23,10 +23,9 @@ Judge honorarium total: Rs 100,000
 4. SCHEDULE
 - 4-hour hackathon duration
 - 150 students
-- teams of 3 students
-- 10 staff on duty
+- 3 students per team
+- 10 staff members on duty
 - 15-minute prayer break required
-- Potential judge delay of 10 minutes
 Schedule still requires timing validation.
 
 5. BUDGET
