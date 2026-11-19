@@ -52,6 +52,60 @@ For each fact include:
 Preserve numbers, dates, conditions, and uncertainty.
 Do not invent missing information.
 Do not make a final event plan.
+Extract venue accessibility and availability constraints.
+
+Use these keys when applicable:
+- step_free_required: true if step-free access is mandatory
+- venue_step_free: true only if step-free access is explicitly confirmed
+- venue_unavailable: true if a venue cannot be booked
+IMPORTANT: Use EXACTLY these keys for the following facts.
+Never rename these keys or create synonyms.
+
+SCHEDULE:
+- duration_hours: event duration in hours
+- student_count: number of students
+- team_size: students per team
+- staff_count: number of staff
+- prayer_break_minutes: prayer break duration in minutes
+
+JUDGING:
+- judge_count: number of confirmed judges
+- judge_honorarium: payment per judge in rupees
+- judging_time_per_team: judging minutes required per team
+- max_teams_per_judge: maximum teams one judge can evaluate
+
+FOOD:
+- food_price: price per person; use food item name as entity
+- service_charge_percentage: service charge percentage
+
+VENUE:
+- venue_price: venue rental price
+- venue_capacity: venue seating capacity
+- step_free_required: boolean
+- venue_step_free: boolean
+- venue_unavailable: boolean
+
+BUDGET:
+- budget_limit: total available budget
+- budget_spent: already-paid expenses
+- extra_cost: optional or proposed cost, not confirmed spending
+
+For different venues or food items, create separate facts.
+Use JSON numbers for quantities and prices.
+Use JSON booleans for true/false conditions.
+Do not invent missing values.
+
+For venue-specific facts, include the venue name in entity.
+
+Keep true and false as JSON booleans, not strings.
+For step_free_required and venue_unavailable, use value: true when the message explicitly confirms the condition.
+For venue_step_free, use value: true only when step-free access is explicitly confirmed.
+Do not use null for a confirmed true or false condition.
+Create a SEPARATE fact for EACH venue.
+Never combine "Hall 2 and Hall 3" into one entity.
+Example: if Hall 3 is unavailable, use key "venue_unavailable", entity "Hall 3", value true.
+Example: if wheelchair users require step-free access, use key "step_free_required", value true.
+Do not assume accessibility merely because a venue has enough seats.
 Every separate price or capacity must be its own fact. Use the same key for comparable facts and distinguish them by entity and date.
 Distinguish event attendance from venue seating capacity.
 Never describe student count as hall capacity.

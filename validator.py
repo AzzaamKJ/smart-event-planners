@@ -37,11 +37,24 @@ for number, fact in enumerate(facts, start=1):
     if not source:
         errors.append(f"Fact {number}: Missing source")
 
-    if value is not None and (
-        isinstance(value, bool)
-        or not isinstance(value, (int, float))
-    ):
-        errors.append(f"Fact {number}: Invalid numeric value")
+    key = fact.get("key")
+
+    boolean_keys = {
+        "step_free_required",
+        "venue_step_free",
+        "venue_unavailable",
+    }
+
+    if value is not None:
+        if key in boolean_keys:
+            if type(value) is not bool:
+                errors.append(
+                    f"Fact {number}: Expected true or false"
+                )
+        elif type(value) not in (int, float):
+            errors.append(
+                f"Fact {number}: Invalid numeric value"
+            )
 
 print("Total facts:", len(facts))
 print("Structural errors:", len(errors))

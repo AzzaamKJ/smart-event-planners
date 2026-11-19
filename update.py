@@ -1,4 +1,4 @@
-
+import subprocess
 import os
 import json
 import re
@@ -84,24 +84,53 @@ prompt = (
     "source, date. Keep explicit uncertainty. "
     "Do not invent facts. Valid areas: venue, schedule, "
     "food, judging, budget.\n"
+    "Use ONLY these exact keys when applicable:\n"
+        "schedule: duration_hours, student_count, team_size, staff_count, prayer_break_minutes.\n"
+        "judging: judge_count, judge_honorarium, judging_time_per_team, max_teams_per_judge.\n"
+        "food: food_price, service_charge_percentage.\n"
+        "venue: venue_price, venue_capacity, step_free_required, venue_step_free, venue_unavailable.\n"
+        "budget: budget_limit, budget_spent, extra_cost.\n"
+        "Never invent alternative key names.\n"
+        "For different venues or food items, use separate facts with entity names.\n"
+        "Use JSON true or false for boolean conditions.\n"
     "NEW MESSAGE:\n" + message
 )
 
-response = client.models.generate_content(
-    model=model,
-    contents=prompt,
-    config=types.GenerateContentConfig(
-        response_mime_type="application/json"
+try:
+    response = client.models.generate_content(
+        model=model,
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json"
+        )
     )
-)
+except Exception as error:
+    print("AI service is temporarily unavailable.")
+    print("Your existing facts are safe.")
+    print("Details:", error)
+    sys.exit(1)
 
 update = json.loads(response.text)
 new_facts = update.get("facts", [])
 affected = update.get("affected_areas", [])
 
-# Keep previous facts and append new dated facts.
-# Conflict resolution is not yet implemented.
-state["facts"].extend(new_facts)
+# Update old facts when new information arrives
+for new_fact in new_facts:
+    key = new_fact.get("key")
+    entity = str(new_fact.get("entity") or "").strip().lower()
+
+    if key != "budget_spent":
+        facts = [
+            old for old in facts
+            if not (
+                old.get("key") == key
+                and str(old.get("entity") or "").strip().lower() == entity
+            )
+        ]
+
+    facts.append(new_fact)
+
+state["facts"] = facts
 
 state_file.write_text(
     json.dumps(state, indent=2, ensure_ascii=False),
@@ -140,3 +169,22 @@ print("Affected areas:", affected)
 print("New facts:", len(new_facts))
 print("Model calls:", 1)
 print("Tokens:", usage.total_token_count)
+# Generate a fresh plan using updated facts
+print("\nGenerating updated event plan...")
+
+result = subprocess.run(
+    [sys.executable, "planner.py"],
+    capture_output=True,
+    text=True
+)
+
+if result.returncode == 0:
+    Path("plan.txt").write_text(
+        result.stdout,
+        encoding="utf-8"
+    )
+    print("Updated plan saved to plan.txt")
+else:
+    print("Plan generation failed:")
+    print(result.stderr)
+    sys.exit(1)
