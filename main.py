@@ -6,6 +6,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from facts_engine import normalize_fact, validate_facts
 
 load_dotenv()
 
@@ -29,7 +30,7 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-model_name = "gemini-3.1-flash-lite"
+model_name = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
 prompt = """
 Extract all event-planning facts from these messages.
@@ -118,15 +119,25 @@ MESSAGES:
 
 print("Reading messages with AI...")
 
-response = client.models.generate_content(
-    model=model_name,
-    contents=prompt,
-    config=types.GenerateContentConfig(
-        response_mime_type="application/json"
+try:
+    response = client.models.generate_content(
+        model=model_name,
+        contents=prompt,
+        config=types.GenerateContentConfig(response_mime_type="application/json"),
     )
-)
-
-data = json.loads(response.text)
+    data = json.loads(response.text)
+    if not isinstance(data, dict) or not isinstance(data.get("facts"), list):
+        raise ValueError("AI output must contain a facts list")
+    data["facts"] = [normalize_fact(f) for f in data["facts"]]
+    errors = validate_facts(data["facts"])
+    if errors:
+        raise ValueError("Invalid AI facts: " + "; ".join(errors[:5]))
+except (ValueError, TypeError, json.JSONDecodeError) as error:
+    print("AI returned unusable data:", error)
+    sys.exit(1)
+except Exception as error:
+    print("AI request failed. Existing saved results were not replaced:", error)
+    sys.exit(1)
 
 print("\n===== EXTRACTED FACTS =====")
 print(json.dumps(data, indent=2, ensure_ascii=False))

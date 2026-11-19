@@ -2,12 +2,16 @@
 import json
 import math
 from pathlib import Path
+from facts_engine import normalize_fact, normalized_entity, validate_facts
 
 data = json.loads(
    Path("extracted_facts.json").read_text(encoding="utf-8")
 )
 
-facts = data.get("facts", [])
+facts = [normalize_fact(f) for f in data.get("facts", [])]
+errors = validate_facts(facts)
+if errors:
+    raise SystemExit("Invalid fact data: " + "; ".join(errors[:5]))
 
 def number(key):
     values = [
@@ -18,11 +22,12 @@ def number(key):
     return values[-1] if values else None
 
 def options(key):
-    return [
-        f for f in facts
-        if f.get("key") == key
-        and type(f.get("value")) in (int, float)
-    ]
+    # Newer facts about the same item replace older values in calculations.
+    latest = {}
+    for fact in facts:
+        if fact.get("key") == key and type(fact.get("value")) in (int, float):
+            latest[normalized_entity(fact.get("entity"))] = fact
+    return list(latest.values())
 
 def fmt(value):
     return f"Rs {value:,.0f}"
@@ -38,6 +43,7 @@ if teams is None and students is not None and team_size:
     teams = math.ceil(students / team_size)
 
 print("\n========== SMART EVENT PLAN ==========")
+plan_issues = []
 
 # 1. VENUE
 print("\n1. VENUE")
@@ -56,18 +62,19 @@ venue_capacities = options("venue_capacity")
 
 # Check whether a constraint is explicitly true
 def has_true_fact(key, venue_name=None):
-    for fact in facts:
+    # The latest explicit True/False wins, including a venue becoming available.
+    for fact in reversed(facts):
         if fact.get("key") != key:
             continue
 
         if venue_name is not None:
             entity = str(fact.get("entity") or "").strip().lower()
 
-            if entity != venue_name.strip().lower():
+            if normalized_entity(entity) != normalized_entity(venue_name):
                 continue
 
-        if fact.get("value") is True:
-            return True
+        if type(fact.get("value")) is bool:
+            return fact["value"]
 
     return False
 
@@ -92,7 +99,7 @@ else:
             continue
         matches = [
             c for c in venue_capacities
-            if c.get("entity") == name
+            if normalized_entity(c.get("entity")) == normalized_entity(name)
         ]
 
         if not matches:
@@ -117,6 +124,7 @@ if selected_venue:
     print("Price:", fmt(selected_venue["price"]))
 else:
     print("No verified suitable venue found.")
+    plan_issues.append("No venue satisfies all confirmed constraints")
 
 # 2. FOOD
 print("\n2. FOOD")
@@ -161,6 +169,8 @@ if teams is not None and max_teams:
     print("Minimum judges required:", needed)
 
     if judges is not None:
+        if judges < needed:
+            plan_issues.append("Not enough judges for all teams")
         print(
             "Judge count valid:",
             "YES" if judges >= needed else "NO"
@@ -169,16 +179,14 @@ if teams is not None and max_teams:
 if teams is not None and minutes_per_team:
     print("Total judge-minutes:", teams * minutes_per_team)
     if judges is not None and judges > 0:
-                        rounds = math.ceil(teams / judges)
-                        judging_minutes = rounds * minutes_per_team
-
-                        print("Judging rounds:", rounds)
-                        print("Minimum judging duration:", judging_minutes, "minutes")
-
-                        if max_teams is not None and rounds > max_teams:
-                            print("WARNING: Judges cannot cover all teams.")
-                        else:
-                            print("Judging capacity: VALID")
+        rounds = math.ceil(teams / judges)
+        judging_minutes = rounds * minutes_per_team
+        print("Judging rounds:", rounds)
+        print("Minimum judging duration:", judging_minutes, "minutes")
+        if max_teams is not None and rounds > max_teams:
+            print("WARNING: Judges cannot cover all teams.")
+        else:
+            print("Judging capacity: VALID")
 
 judge_cost = None
 
@@ -220,6 +228,7 @@ if duration_hours is not None and prayer_minutes is not None:
             print("Basic timing check: PASS")
         else:
             print("Basic timing check: FAIL")
+            plan_issues.append("Judging and prayer break exceed available time")
     else:
         print("Judging details incomplete; schedule cannot be verified.")
 else:
@@ -269,12 +278,7 @@ print("Venue cost:",
 print("Judging cost:",
       fmt(judge_cost) if judge_cost is not None else "Unknown")
 
-committed_cost = sum(
-    fact["value"]
-    for fact in facts
-    if fact.get("key") == "budget_spent"
-    and type(fact.get("value")) in (int, float)
-)
+committed_cost = sum(fact["value"] for fact in options("budget_spent"))
 
 print("Already-paid expenses:", fmt(committed_cost))
 
@@ -307,7 +311,20 @@ if (
         print("Status: WITHIN BUDGET")
     else:
         print("Status: OVER BUDGET")
+        plan_issues.append("Total estimated cost exceeds available budget")
 else:
     print("Complete budget cannot be calculated yet.")
+    plan_issues.append("Budget estimate incomplete")
 
-print("Photo booth quote is optional and not included.")
+if options("extra_cost"):
+    print("Optional quoted expenses are not included:")
+    for optional in options("extra_cost"):
+        print("-", optional.get("entity") or "Unspecified", fmt(optional["value"]))
+
+print("\nFINAL FEASIBILITY CHECK")
+if plan_issues:
+    print("REVIEW REQUIRED")
+    for issue in plan_issues:
+        print("-", issue)
+else:
+    print("No blocking issues found in the checked facts; confirm assumptions on-site.")

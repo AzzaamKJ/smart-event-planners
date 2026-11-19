@@ -3,10 +3,12 @@ import os
 import json
 import re
 import sys
+import tempfile
 from pathlib import Path
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from facts_engine import merge_facts, validate_facts
 
 load_dotenv()
 
@@ -75,7 +77,7 @@ if not api_key:
     sys.exit(1)
 
 client = genai.Client(api_key=api_key)
-model = "gemini-3.5-flash-lite"
+model = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
 prompt = (
     "Extract only facts changed or added by this new message. "
@@ -110,27 +112,39 @@ except Exception as error:
     print("Details:", error)
     sys.exit(1)
 
-update = json.loads(response.text)
-new_facts = update.get("facts", [])
+try:
+    update = json.loads(response.text)
+    if not isinstance(update, dict) or not isinstance(update.get("facts"), list):
+        raise ValueError("AI update is missing the facts list")
+    new_facts = update["facts"]
+    if not new_facts:
+        print("No changed facts were found. Original plan remains unchanged.")
+        sys.exit(0)
+    facts = merge_facts(facts, new_facts)
+    errors = validate_facts(facts)
+    if errors:
+        raise ValueError("Invalid update facts: " + "; ".join(errors[:5]))
+except (ValueError, TypeError) as error:
+    print("Update rejected without changing existing facts:", error)
+    sys.exit(1)
+
 affected = update.get("affected_areas", [])
-
-# Update old facts when new information arrives
-for new_fact in new_facts:
-    key = new_fact.get("key")
-    entity = str(new_fact.get("entity") or "").strip().lower()
-
-    if key != "budget_spent":
-        facts = [
-            old for old in facts
-            if not (
-                old.get("key") == key
-                and str(old.get("entity") or "").strip().lower() == entity
-            )
-        ]
-
-    facts.append(new_fact)
-
 state["facts"] = facts
+
+# Verify the complete updated plan in an isolated temporary directory first.
+# A failed planner must never damage the previous valid facts or plan.
+with tempfile.TemporaryDirectory() as scratch:
+    Path(scratch, "extracted_facts.json").write_text(
+        json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    result = subprocess.run(
+        [sys.executable, str(Path(__file__).resolve().with_name("planner.py"))],
+        cwd=scratch, capture_output=True, text=True, timeout=20,
+    )
+    if result.returncode != 0:
+        print("Updated plan failed validation. Existing files were not changed.")
+        print(result.stderr)
+        sys.exit(1)
 
 state_file.write_text(
     json.dumps(state, indent=2, ensure_ascii=False),
@@ -169,22 +183,5 @@ print("Affected areas:", affected)
 print("New facts:", len(new_facts))
 print("Model calls:", 1)
 print("Tokens:", usage.total_token_count)
-# Generate a fresh plan using updated facts
-print("\nGenerating updated event plan...")
-
-result = subprocess.run(
-    [sys.executable, "planner.py"],
-    capture_output=True,
-    text=True
-)
-
-if result.returncode == 0:
-    Path("plan.txt").write_text(
-        result.stdout,
-        encoding="utf-8"
-    )
-    print("Updated plan saved to plan.txt")
-else:
-    print("Plan generation failed:")
-    print(result.stderr)
-    sys.exit(1)
+Path("plan.txt").write_text(result.stdout, encoding="utf-8")
+print("Updated plan saved to plan.txt")

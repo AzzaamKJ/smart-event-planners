@@ -1,6 +1,7 @@
 
 import json
 from pathlib import Path
+from facts_engine import normalize_fact, validate_facts
 
 # AI ki extracted information read karo
 file_path = Path("extracted_facts.json")
@@ -11,50 +12,11 @@ if not file_path.is_file():
 
 data = json.loads(file_path.read_text(encoding="utf-8"))
 
-facts = data.get("facts", [])
+facts = [normalize_fact(f) for f in data.get("facts", [])]
 
 print("===== FACT VALIDATION =====")
 
-valid_areas = {
-    "venue", "schedule", "food", "judging", "budget"
-}
-
-errors = []
-
-for number, fact in enumerate(facts, start=1):
-
-    area = fact.get("area")
-    detail = fact.get("detail")
-    value = fact.get("value")
-    source = fact.get("source")
-
-    if area not in valid_areas:
-        errors.append(f"Fact {number}: Invalid area")
-
-    if not detail:
-        errors.append(f"Fact {number}: Missing detail")
-
-    if not source:
-        errors.append(f"Fact {number}: Missing source")
-
-    key = fact.get("key")
-
-    boolean_keys = {
-        "step_free_required",
-        "venue_step_free",
-        "venue_unavailable",
-    }
-
-    if value is not None:
-        if key in boolean_keys:
-            if type(value) is not bool:
-                errors.append(
-                    f"Fact {number}: Expected true or false"
-                )
-        elif type(value) not in (int, float):
-            errors.append(
-                f"Fact {number}: Invalid numeric value"
-            )
+errors = validate_facts(facts)
 
 print("Total facts:", len(facts))
 print("Structural errors:", len(errors))
@@ -63,3 +25,5 @@ for error in errors:
     print(error)
 
 print("Validation finished!")
+if errors:
+    raise SystemExit(1)
