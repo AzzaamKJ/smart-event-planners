@@ -69,3 +69,46 @@ The first command tests venue availability/accessibility, latest prices, service
 | `tests/test_core.py` | Offline regression tests |
 
 Default model can be configured with `GEMINI_MODEL` in the environment, provided it is supported by your Gemini account.
+---
+
+## 📸 Project Screenshots
+
+### 1. Aurora Intelligence Dashboard
+
+A modern AI-powered event planning dashboard showing the selected venue, total budget, estimated expenses, and remaining balance.
+
+![Smart Event Planner Dashboard](screenshots/dashboard.png)
+
+### 2. AI Planning Workspace
+
+Users can generate a new event plan from organizer messages or update an existing plan when requirements change.
+
+![AI Planning Workspace](screenshots/workspace.png)
+
+### 3. AI-Generated Event Plan
+
+The system analyzes venue requirements, accessibility, food costs, judging capacity, scheduling, and budget constraints.
+
+![Generated Event Plan](screenshots/event_plan.png)
+
+---
+
+## 🧪 Testing
+
+The project includes 14 automated regression tests covering:
+
+- Venue selection and accessibility
+- Venue availability constraints
+- Updated food prices
+- Budget calculations
+- Judging capacity
+- Invalid and missing data
+- Conflict handling
+- Duplicate expense prevention
+
+**Test Results: 14/14 Passed**
+
+Run the tests using:
+
+```bash
+python -m unittest discover -s tests -v
